@@ -37,32 +37,36 @@ public class ShoppingBasketTest {
     assertEquals(0, items.getBasket().size());
   }
 
- @Test
- public void canRemoveAnyItemInArrayList() {
-   items.addItem(pizza);
-   items.addItem(wedges);
-   items.addItem(cookies);
-   items.removeItem(wedges);
-   assertEquals(2, items.getBasket().size());
- }
-
- @Test
- public void canEmptyBasket() {
-   items.addItem(pizza);
-   items.addItem(cookies);
-   items.addItem(wedges);
-   items.emptyBasket();
-   assertEquals(0, items.getBasket().size());
- }
+  @Test
+  public void canRemoveAnyItemInArrayList() {
+    items.addItem(pizza);
+    items.addItem(wedges);
+    items.addItem(cookies);
+    items.removeItem(wedges);
+    assertEquals(2, items.getBasket().size());
+  }
 
   @Test
-   public void canGetBasketTotal() {
-     ShoppingBasket basket = new ShoppingBasket();
-     Item pizza = new Item("Pepperoni", 17.99);
-     Item wedges = new Item("Wedges", 3.99);
-     basket.addItem(wedges);
-     basket.addItem(pizza);
-     assertEquals(21.97, basket.getTotal(), 0.01);
-   }
+  public void canEmptyBasket() {
+    items.addItem(pizza);
+    items.addItem(cookies);
+    items.addItem(wedges);
+    items.emptyBasket();
+    assertEquals(0, items.getBasket().size());
+  }
+
+  @Test
+  public void canGetBasketTotal() {
+    items.addItem(wedges);
+    items.addItem(cookies);
+    assertEquals(8.48, items.getTotal(), 0.01);
+  }
+
+  @Test
+  public void canGetDiscountOver20Quid() {
+    items.addItem(cookies);
+    items.addItem(pizza);
+    assertEquals(20.23, items.getTotal(), 0.01);
+  }
 
  }

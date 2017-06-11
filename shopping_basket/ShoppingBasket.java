@@ -1,10 +1,8 @@
 package shopping_basket;
-
 import java.util.*;
-import java.util.ArrayList;
+
 
 public class ShoppingBasket {
-
 
   private ArrayList<Item> basket;
 
@@ -32,6 +30,9 @@ public class ShoppingBasket {
     float total = 0;
     for (Item item : basket){
       total += item.getPrice();
+      if (total >= 20.00){
+        total -= (total * 0.1);
+      }
     }
     return total;
   }
