@@ -10,4 +10,10 @@ public class ItemTest {
     assertEquals("Garlic Bread", item.getName());
   }
 
+  @Test
+  public void canGetPrice() {
+    Item item = new Item("Garlic Bread", 3.99);
+    assertEquals(3.99, item.getPrice(), 0);
+  }
+
 }
