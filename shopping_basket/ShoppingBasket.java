@@ -20,12 +20,20 @@ public class ShoppingBasket {
     this.basket.add(item);
   }
 
-  public void removeItem(int item) {
-    this.basket.remove(0);
+  public void removeItem(Item item) {
+    this.basket.remove(item);
   }
 
   public void emptyBasket() {
     this.basket.clear();
+  }
+
+  public float getTotal() {
+    float total = 0;
+    for (Item item : basket){
+      total += item.getPrice();
+    }
+    return total;
   }
 
 }
