@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 public class ShoppingBasketTest {
 
   ShoppingBasket items;
+  ShoppingBasket basket;
   Item item;
   Item pizza;
   Item wedges;
@@ -18,9 +19,9 @@ public class ShoppingBasketTest {
     customer1 = new Customer(true);
     customer2 = new Customer(false);
     items = new ShoppingBasket();
-    pizza = new Item("Pepperoni", 17.99);
-    wedges = new Item("Wedges", 3.99);
-    cookies = new Item ("Cookies", 4.49);
+    pizza = new Item("Pepperoni", 17.99, false);
+    wedges = new Item("Wedges", 3.99, true);
+    cookies = new Item ("Cookies", 4.49, false);
   }
 
   @Test
@@ -61,9 +62,9 @@ public class ShoppingBasketTest {
 
   @Test
   public void canGetBasketTotal() {
-    items.addItem(wedges);
     items.addItem(cookies);
-    assertEquals(8.48, items.getTotal(customer2), 0.01);
+    items.addItem(cookies);
+    assertEquals(8.98, items.getTotal(customer2), 0.01);
   }
 
   @Test
@@ -104,6 +105,14 @@ public class ShoppingBasketTest {
     items.addItem(cookies);
     items.addItem(pizza);
     assertEquals(39.65, items.getTotal(customer1), 0.01);
+  }
+
+  @Test
+  public void canGetBogof() {
+    basket = new ShoppingBasket();
+    basket.addItem(wedges);
+    basket.addItem(wedges);
+    assertEquals(3.99, basket.getTotal(customer2), 0.01);
   }
 
 

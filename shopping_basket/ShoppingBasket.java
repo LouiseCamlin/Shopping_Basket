@@ -29,8 +29,12 @@ public class ShoppingBasket {
   public float getTotal(Customer customer) {
     float total = 0;
     for (Item item : basket){
-      total += item.getPrice();
-    }
+        if (item.getBogof() == true && getBasket().size() > 1) {
+          total += (item.getPrice() / 2);
+        } else {
+          total += item.getPrice();
+        }
+      }
     if (total >= 20.00){
       total -= (total * 0.1);
     }
