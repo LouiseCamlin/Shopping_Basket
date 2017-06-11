@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 public class ShoppingBasketTest {
 
   ShoppingBasket items;
+  Item item;
   
 
   @Before
@@ -15,6 +16,12 @@ public class ShoppingBasketTest {
   @Test
   public void itemsStartsEmpty() {
     assertEquals(0, items.getBasket().size());
+  }
+
+  @Test
+  public void canAddItems() {
+    items.addItem(item);
+    assertEquals(1, items.getBasket().size());
   }
 
 }
