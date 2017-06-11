@@ -12,4 +12,8 @@ public class ShoppingBasket {
     this.basket = new ArrayList<Item>();
   }
 
+  public ArrayList<Item> getBasket() {
+    return this.basket;
+  }
+
 }

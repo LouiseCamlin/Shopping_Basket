@@ -12,4 +12,9 @@ public class ShoppingBasketTest {
     items = new ShoppingBasket();
   }
 
+  @Test
+  public void itemsStartsEmpty() {
+    assertEquals(0, items.getBasket().size());
+  }
+
 }
