@@ -26,13 +26,16 @@ public class ShoppingBasket {
     this.basket.clear();
   }
 
-  public float getTotal() {
+  public float getTotal(Customer customer) {
     float total = 0;
     for (Item item : basket){
       total += item.getPrice();
-      if (total >= 20.00){
-        total -= (total * 0.1);
-      }
+    }
+    if (total >= 20.00){
+      total -= (total * 0.1);
+    }
+    if (customer.getLoyaltyCard() == true) {
+      total -= (total * 0.02);
     }
     return total;
   }
