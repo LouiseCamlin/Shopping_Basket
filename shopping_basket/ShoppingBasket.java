@@ -20,4 +20,8 @@ public class ShoppingBasket {
     this.basket.add(item);
   }
 
+  public void removeItem(int item) {
+    this.basket.remove(0);
+  }
+
 }
